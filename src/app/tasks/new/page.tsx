@@ -6,20 +6,21 @@ import Link from 'next/link';
 
 export default function NewTaskPage() {
   const [title, setTitle] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (title.trim() === '') {
-      alert('Ju lutem shkruani një titull për detyrën.');
+      setError('Please enter a title for the task.');
       return;
     }
+    setError('');
 
-    // Ruaj në localStorage ose backend - shembull i thjeshtë me localStorage
     const existing = localStorage.getItem('tasks');
     const tasks = existing ? JSON.parse(existing) : [];
-    const newTask = { id: Date.now(), title, completed: false };
+    const newTask = { id: Date.now(), title: title.trim(), completed: false };
     tasks.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
@@ -27,26 +28,23 @@ export default function NewTaskPage() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto p-8 min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-semibold mb-8">Krijo Detyrë të Re</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <main className="new-task-page">
+      <h2>Create a New Task</h2>
+      <form onSubmit={handleSubmit} className="new-task-form">
         <input
           type="text"
-          placeholder="Shkruaj titullin e detyrës..."
+          placeholder="Enter task title..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-brand"
         />
-        <button
-          type="submit"
-          className="bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-md transition-colors"
-        >
-          Ruaj Detyrën
+        {error && <p className="error-message">{error}</p>}
+        <button type="submit" disabled={title.trim() === ''}>
+          Save Task
         </button>
       </form>
-      <div className="mt-6">
-        <Link href="/tasks" className="text-brand hover:underline">
-          ← Kthehu te Lista e Detyrave
+      <div>
+        <Link href="/tasks" className="new-task-backlink">
+          ← Back to Task List
         </Link>
       </div>
     </main>

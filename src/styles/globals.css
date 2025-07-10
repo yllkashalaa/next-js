@@ -86,3 +86,211 @@ body {
 .dark .dashboard a:hover {
   background-color: #5b21b6;
 }
+
+/*Task table */
+
+.tasks-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tasks-page h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tasks-table th, .tasks-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.tasks-table th {
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+}
+
+.tasks-table tbody tr {
+  transition: background-color 0.25s ease;
+}
+
+.tasks-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Input për editim */
+.tasks-table input[type="text"] {
+  width: 100%;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.tasks-table input[type="text"]:focus {
+  border-color: #4f7dff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(79,125,255,0.5);
+}
+
+/* Qeliza e veprimeve: vendos butonat në fund, horizontal */
+.action-cell {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+/* Butonat: minimalist */
+button {
+  background: #4f7dff;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+button:hover {
+  background-color: #3a5bdc;
+  transform: scale(1.05);
+}
+
+/* Buton Save dhe Cancel me ngjyra */
+.btn-save {
+  background-color: #28a745;
+}
+
+.btn-save:hover {
+  background-color: #1e7e34;
+}
+
+.btn-cancel {
+  background-color: #6c757d;
+}
+
+.btn-cancel:hover {
+  background-color: #565e64;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #b02a37;
+}
+
+/* Animacion fshirjeje të rreshtit */
+@keyframes fadeOut {
+  from {opacity: 1; height: auto;}
+  to {opacity: 0; height: 0; padding-top: 0; padding-bottom: 0; margin: 0;}
+}
+
+.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+
+/* New Task */
+
+/* Container */
+.new-task-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.new-task-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+/* Form */
+.new-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.new-task-form input[type="text"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.new-task-form input[type="text"]:focus {
+  border-color: #4f7dff;
+  box-shadow: 0 0 6px rgba(79, 125, 255, 0.5);
+  outline: none;
+}
+
+/* Error Message */
+.new-task-form .error-message {
+  color: #dc3545;
+  font-size: 0.95rem;
+}
+
+/* Submit Button */
+.new-task-form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-task-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.new-task-form button:not(:disabled) {
+  background-color: #4f7dff;
+  color: white;
+}
+
+.new-task-form button:not(:disabled):hover {
+  background-color: #3a5bdc;
+  transform: scale(1.03);
+}
+
+/* Back Link */
+.new-task-backlink {
+  margin-top: 1.5rem;
+  color: #4f7dff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.new-task-backlink:hover {
+  text-decoration: underline;
+  color: #3a5bdc;
+}
