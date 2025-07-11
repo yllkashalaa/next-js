@@ -5,10 +5,10 @@ export default function Home() {
     <main className="dashboard">
       <h1>Dashboard for Task Management</h1>
       <div>
-        <Link href="/tasks">Go to tasks →</Link>
+        <Link href="/tasks">Go to tasks</Link>
       </div>
       <div>
-        <Link href="/tasks/new">Add new task +</Link>
+        <Link href="/tasks/new">Add new task</Link>
       </div>
     </main>
   );

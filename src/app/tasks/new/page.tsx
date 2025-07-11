@@ -44,7 +44,7 @@ export default function NewTaskPage() {
       </form>
       <div>
         <Link href="/tasks" className="new-task-backlink">
-          ← Back to Task List
+          Back to Task List
         </Link>
       </div>
     </main>

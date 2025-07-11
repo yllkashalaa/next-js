@@ -85,11 +85,11 @@ export default function TasksPage() {
         placeholder="Search tasks..."
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
-        className="mb-4 p-2 border rounded w-full max-w-md"
+        className="search-input"
       />
 
       {/* Filter Buttons */}
-      <div className="mb-6 flex gap-4">
+      <div className="filter-buttons">
         <button
           className={`btn-filter ${filter === 'all' ? 'active' : ''}`}
           onClick={() => setFilter('all')}
@@ -169,7 +169,7 @@ export default function TasksPage() {
       )}
 
       <div>
-        <Link href="/tasks/new" className="new-task-backlink">
+        <Link href="/tasks/new" className="new-task-link">
           Add new task
         </Link>
       </div>

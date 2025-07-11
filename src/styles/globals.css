@@ -304,14 +304,84 @@ button:hover {
 }
 
 .new-task-backlink {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 1.5rem;
-  color: #2563eb; /* blue-600 */
+  color: #2563eb;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .new-task-backlink:hover {
-  text-decoration: underline;
-  color: #1d4ed8; /* blue-700 */
+  color: #1d4ed8;
+}
+
+.search-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
+  outline: none;
+}
+
+.filter-buttons {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-weight: 500;
+  cursor: pointer;
+  gap: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-filter:hover {
+  background-color: #e5e7eb;
+}
+
+.btn-filter.active {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.new-task-link {
+  display: flex;
+justify-content: center;
+  margin-top: 3rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.new-task-link:hover {
+  margin-top: 3rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  gap: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
 }
