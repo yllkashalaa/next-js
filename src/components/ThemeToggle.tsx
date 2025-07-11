@@ -26,12 +26,12 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button
+    <span
       onClick={toggleTheme}
       className="theme-toggle-button"
-      aria-label="Ndrysho mes Light dhe Dark Mode"
+      aria-label="Light and Dark Mode"
     >
       {isDark ? '🌞' : '🌙'}
-    </button>
+    </span>
   );
 }
