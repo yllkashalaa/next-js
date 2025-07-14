@@ -7,6 +7,7 @@ interface Task {
   id: number;
   title: string;
   completed: boolean;
+  priority?: 'low' | 'normal' | 'high'; // ✅ Shtuar
 }
 
 type FilterType = 'all' | 'active' | 'completed';
@@ -15,11 +16,9 @@ export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[] | null>(null);
   const [editId, setEditId] = useState<number | null>(null);
   const [editText, setEditText] = useState('');
-
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState<FilterType>('all');
 
-  // Load tasks from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('tasks');
     if (saved) {
@@ -29,7 +28,6 @@ export default function TasksPage() {
     }
   }, []);
 
-  // Save tasks to localStorage whenever tasks change
   useEffect(() => {
     if (tasks !== null) {
       localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -65,13 +63,10 @@ export default function TasksPage() {
     return <p>Loading...</p>;
   }
 
-  // Filter and search tasks
   const filteredTasks = tasks.filter(task => {
     if (filter === 'active' && task.completed) return false;
     if (filter === 'completed' && !task.completed) return false;
-
     if (!task.title.toLowerCase().includes(searchTerm.toLowerCase())) return false;
-
     return true;
   });
 
@@ -79,7 +74,6 @@ export default function TasksPage() {
     <main className="tasks-page">
       <h2>Task List</h2>
 
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Search tasks..."
@@ -88,7 +82,6 @@ export default function TasksPage() {
         className="search-input"
       />
 
-      {/* Filter Buttons */}
       <div className="filter-buttons">
         <button
           className={`btn-filter ${filter === 'all' ? 'active' : ''}`}
@@ -116,6 +109,7 @@ export default function TasksPage() {
             <tr>
               <th>Done</th>
               <th>Task</th>
+              <th>Priority</th> {/* ✅ Kolonë e re */}
               <th style={{ width: '180px' }}>Actions</th>
             </tr>
           </thead>
@@ -147,6 +141,14 @@ export default function TasksPage() {
                     </span>
                   )}
                 </td>
+
+                {/* ✅ PRIORITY */}
+                <td>
+                  <span className={`priority-tag ${task.priority || 'normal'}`}>
+                    {task.priority || 'normal'}
+                  </span>
+                </td>
+
                 <td className="action-cell">
                   {editId === task.id ? (
                     <>

@@ -385,3 +385,43 @@ justify-content: center;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
 }
+
+.priority-select {
+  padding: 0.6rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  color: #1f2937;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.priority-select:focus {
+  border-color: #2563eb; /* blue */
+  outline: none;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
+}
+
+.priority-tag {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.priority-tag.low {
+  background-color: #d1fae5; /* green-100 */
+  color: #065f46; /* green-800 */
+}
+
+.priority-tag.normal {
+  background-color: #e0f2fe; /* blue-100 */
+  color: #1e40af; /* blue-800 */
+}
+
+.priority-tag.high {
+  background-color: #fee2e2; /* red-100 */
+  color: #991b1b; /* red-800 */
+}

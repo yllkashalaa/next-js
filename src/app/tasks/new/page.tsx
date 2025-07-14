@@ -7,6 +7,7 @@ import Link from 'next/link';
 export default function NewTaskPage() {
   const [title, setTitle] = useState('');
   const [error, setError] = useState('');
+  const [priority, setPriority] = useState('normal');
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +21,7 @@ export default function NewTaskPage() {
 
     const existing = localStorage.getItem('tasks');
     const tasks = existing ? JSON.parse(existing) : [];
-    const newTask = { id: Date.now(), title: title.trim(), completed: false };
+    const newTask = { id: Date.now(), title: title.trim(), completed: false, priority };
     tasks.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
@@ -37,6 +38,13 @@ export default function NewTaskPage() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <select value={priority}
+        onChange={(e) => setPriority (e.target.value)}
+        className='"priority-select'>
+        <option value="low">Low Priority</option>
+        <option value="normal">Normal Priority</option>
+        <option value="high">High priority</option>
+        </select>
         {error && <p className="error-message">{error}</p>}
         <button type="submit" disabled={title.trim() === ''}>
           Save Task
